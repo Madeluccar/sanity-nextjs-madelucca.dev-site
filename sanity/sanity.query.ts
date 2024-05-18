@@ -9,7 +9,10 @@ export async function getProfile() {
       _id,
       fullName,
       headline,
-      profileImage {alt, "image": asset->url},
+      profileImage {
+        alt, 
+        "image": asset->url
+      },
       shortBio,
       location,
       fullBio,
@@ -17,6 +20,21 @@ export async function getProfile() {
       "resumeURL": resumeURL.asset->url,
       socialLinks,
       skills
+    }`
+  );
+}
+
+export async function getJob() {
+  return client.fetch(
+    groq`*[_type == "job"]{
+      _id,
+      name,
+      jobTitle,
+      "logo": logo.asset->url,
+      url,
+      description,
+      startDate,
+      endDate,
     }`
   );
 }

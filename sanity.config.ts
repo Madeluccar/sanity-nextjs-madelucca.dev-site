@@ -3,6 +3,7 @@ import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { schemaTypes } from './schemas';  // Make sure this path matches the actual location of your schemas
 
+
 // Configuration definition
 export default defineConfig({
   name: 'default',  // Or 'sanity-nextjs-site' if you prefer something more descriptive
