@@ -18,8 +18,8 @@ export default function HeroSvg() {
           y2="-216.277"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8B27DA" />
-          <stop offset="0.619553" stopColor="#6033E0" />
+          <stop stopColor="#f0f9ff" />
+          <stop offset="0.619553" stopColor="#3b82f6" />
           <stop offset="0.93102" stopColor="#1c1b24" />
         </linearGradient>
         <clipPath>

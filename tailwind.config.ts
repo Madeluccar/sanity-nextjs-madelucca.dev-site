@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        mono: ['Monaco', 'Menlo', 'monospace'], // Add Monaco and Menlo fonts to font-mono
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -17,4 +20,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;

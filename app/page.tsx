@@ -7,17 +7,17 @@ export default async function Home() {
 
   return (
     <main className="max-w-7xl mx-auto lg:px-16 px-6">
-      <section className="flex flex-col items-center lg:mt-32 mt-20 mb-16">
+      <section className="xl:flex-row flex-col xl:items-center items-start xl:justify-center justify-between gap-x-12 lg:mt-32 mt-20 mb-16">
         {profile &&
           profile.map((data) => (
-            <div key={data._id} className="text-center lg:max-w-3xl max-w-full mb-12">
-              <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl mb-4 lg:leading-[4rem] leading-tight">
+            <div key={data._id} className="lg:max-w-2xl max-w-2xl">
+              <h1 className="text-3xl font-bold tracking-tight sm:text-5xl mb-6 lg:leading-[3.7rem] leading-tight lg:min-w-[700px] min-w-full">
                 {data.headline}
               </h1>
-              <p className="text-lg text-gray-600 leading-relaxed mb-6">
+              <p className="text-base text-zinc-400 leading-relaxed font-mono">
                 {data.shortBio}
               </p>
-              <ul className="flex justify-center gap-x-8 my-10">
+              <ul className="flex items-center gap-x-6 my-10">
                 {Object.entries(data.socialLinks)
                   .sort()
                   .map(([key, value], id) => (
@@ -33,12 +33,9 @@ export default async function Home() {
                   ))}
               </ul>
             </div>
-          ))}
-        <div className="mt-10">
-          <HeroSvg />
-        </div>
-      </section>
-    </main>
-  );
-}
-
+            ))} 
+          <HeroSvg/>
+        </section>
+      </main>
+    );
+  }
