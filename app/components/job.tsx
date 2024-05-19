@@ -1,13 +1,14 @@
 // app/components/Job.tsx
 
+
 import Image from "next/image";
 import { getJob } from "@/sanity/sanity.query";
 import type { JobType } from "@/types";
 
+export const revalidate = 60;
+
 export default async function Job() {
   const job: JobType[] = await getJob();
-  console.log(job); // Add this line to log the fetched data
-
   return (
     <section className="mt-32">
       <div className="mb-16">

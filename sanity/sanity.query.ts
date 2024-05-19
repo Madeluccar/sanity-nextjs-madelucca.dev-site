@@ -34,7 +34,7 @@ export async function getJob() {
       url,
       description,
       startDate,
-      endDate,
+      endDate
     }`
   );
 }
