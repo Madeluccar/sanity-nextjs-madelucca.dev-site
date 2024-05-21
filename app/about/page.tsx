@@ -16,10 +16,10 @@ export default async function About() {
           <div key={data._id}>
             <section className="grid lg:grid-cols-2 grid-cols-1 gap-x-6 justify-items-center">
               <div className="order-2 lg:order-none">
-                <h1 className="lg:text-5xl text-4xl lg:leading-tight basis-1/2 font-bold mb-8">
-                  I&apos;m {data.fullName}. <br/> I live in {data.location}, where I
-                  develop the future.
-                </h1>
+              <h1 className="lg:text-5xl text-4xl lg:leading-tight basis-1/2 font-bold mb-8">
+                I&apos;m <span className="text-blue-400">{data.fullName}.</span> 
+                <br/> I live in {data.location}, where I <span className="text-blue-400">develop</span> the future.
+              </h1>
 
                 <div className="flex flex-col gap-y-3 text-zinc-400 leading-relaxed">
                   <PortableText value={data.fullBio} />
@@ -29,9 +29,9 @@ export default async function About() {
               <div className="flex flex-col lg:justify-self-center justify-self-start gap-y-8 lg:order-1 order-none mb-12">
                 <div>
                   <Image
-                    className="rounded-2xl mb-4 object-cover max-h-96 min-h-96 bg-top bg-[#1d1d20]"
+                    className="rounded-2xl mb-4 object-cover bg-top bg-[#1d1d20]"
                     src={data.profileImage.image}
-                    width={250}
+                    width={300}
                     height={250}
                     quality={100}
                     alt={data.profileImage.alt}
@@ -59,14 +59,14 @@ export default async function About() {
               </div>
             </section>
 
-            <section className="mt-24 max-w-2xl">
+            <section className="mt-10 max-w-2xl mx-auto text-center">
               <h2 className="font-semibold text-4xl mb-4">Expertise</h2>
-              <p className="text-zinc-400 max-w-lg">
+              <p className="text-zinc-400 max-w-lg mx-auto">
                 I&apos;ve spent few years working on my skills. In no particular
                 order, here are a few of them.
               </p>
 
-              <ul className="flex flex-wrap items-center gap-3 mt-8">
+              <ul className="flex flex-wrap justify-center items-center gap-3 mt-8">
                 {data.skills.map((skill, id) => (
                   <li
                     key={id}
