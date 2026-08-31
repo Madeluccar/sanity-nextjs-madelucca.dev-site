@@ -16,17 +16,17 @@ export default async function About() {
           <div key={data._id}>
             <section className="grid lg:grid-cols-2 grid-cols-1 gap-x-6 justify-items-center">
               <div className="order-2 lg:order-none">
-              <h1 className="lg:text-5xl text-4xl lg:leading-tight basis-1/2 font-bold mb-8">
-                I&apos;m <span className="text-blue-400">{data.fullName}.</span> 
-                <br/> I live in {data.location}, where I <span className="text-blue-400">develop</span> the future.
-              </h1>
+                <h1 className="lg:text-5xl text-4xl lg:leading-tight basis-1/2 font-bold mb-8">
+                  I&apos;m <span className="text-blue-400">{data.fullName}.</span> 
+                  <br/> I live in {data.location}, where I <span className="text-blue-400">develop</span> the future.
+                </h1>
 
                 <div className="flex flex-col gap-y-3 text-zinc-400 leading-relaxed">
                   <PortableText value={data.fullBio} />
                 </div>
               </div>
 
-              <div className="flex flex-col lg:justify-self-center justify-self-start gap-y-8 lg:order-1 order-none mb-12">
+              <div className="mx-auto flex flex-col lg:justify-self-center justify-self-start gap-y-8 lg:order-1 order-none mb-12">
                 <div>
                   <Image
                     className="rounded-2xl mb-4 object-cover bg-top bg-[#1d1d20]"
@@ -49,7 +49,7 @@ export default async function About() {
                   <li>
                     <a
                       href={`mailto:${data.email}`}
-                      className="flex items-center gap-x-2 hover:text-blue-400 duration-300"
+                      className="flex items-center justify-center gap-x-2 hover:text-blue-400 duration-300"
                     >
                       <BiEnvelope className="text-lg" />
                       {data.email}
