@@ -9,11 +9,8 @@ import Footer from "./components/global/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: " Madelucca Dev Sanity Next.js Portfolio Site",
+  title: "Madelucca Dev — Sanity + Next.js Portfolio",
   description: "A personal portfolio site built with Sanity and Next.js",
-  openGraph: {
-    images: "add-your-open-graph-image-url-here",
-  },
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
