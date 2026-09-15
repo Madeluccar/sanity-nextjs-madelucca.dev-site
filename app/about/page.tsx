@@ -6,6 +6,8 @@ import type { ProfileType } from "@/types";
 import { PortableText } from "@portabletext/react";
 import { BiEnvelope, BiFile } from "react-icons/bi";
 
+export const revalidate = 60;
+
 export default async function About() {
   const profile: ProfileType[] = await getProfile();
 
