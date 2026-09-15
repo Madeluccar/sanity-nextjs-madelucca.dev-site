@@ -55,7 +55,7 @@ export default async function Home() {
                     alt={data.profileImage.alt}
                   />
                   <a
-                    href={`${data.resumeURL}?dl=${data.fullName}_resume`}
+                    href="/resume"
                     className="flex items-center justify-center gap-x-2 bg-[#1d1d20] border border-transparent hover:border-blue-500 rounded-md duration-200 py-2 text-center cursor-cell font-medium"
                   >
                     <BiFile className="text-base text-blue-400" /> Download Resumé
@@ -63,9 +63,9 @@ export default async function Home() {
                 </div>
               </div>
             ))}
-          {/* Reserve 80% of the SVG height to account for its 20% upward shift. */}
-          <div aria-hidden="true" className="pointer-events-none relative -z-10 aspect-[1273/724.8]">
-            <div className="absolute inset-x-0 top-0 -translate-y-[20%]">
+          {/* Reserve the visible height after shifting up 10% on mobile and 20% on desktop. */}
+          <div aria-hidden="true" className="pointer-events-none relative -z-10 aspect-[1273/815.4] lg:aspect-[1273/724.8]">
+            <div className="absolute inset-x-0 top-0 -translate-y-[10%] lg:-translate-y-[20%]">
               <HeroSvg />
             </div>
           </div>

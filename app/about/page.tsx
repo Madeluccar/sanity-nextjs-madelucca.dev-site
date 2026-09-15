@@ -27,20 +27,20 @@ export default async function About() {
                   </div>
                 </div>
 
-                <div className="w-full max-w-[384px] lg:max-w-none mx-auto lg:mx-0 flex flex-col gap-y-6 lg:order-1 order-none">
+                <div className="w-full max-w-[300px] lg:max-w-none mx-auto lg:mx-0 flex flex-col gap-y-6 lg:order-1 order-none">
                   <div>
                     <Image
                       className="w-full h-auto rounded-2xl mb-4 object-cover bg-top bg-[#1d1d20]"
                       src={data.profileImage.image}
                       width={600}
                       height={500}
-                      sizes="(min-width: 1280px) 393px, (min-width: 1024px) calc((100vw - 160px) * 16 / 45), (min-width: 432px) 384px, calc(100vw - 48px)"
+                      sizes="(min-width: 1280px) 393px, (min-width: 1024px) calc((100vw - 160px) * 16 / 45), (min-width: 348px) 300px, calc(100vw - 48px)"
                       quality={100}
                       alt={data.profileImage.alt}
                     />
 
                     <a
-                      href={`${data.resumeURL}?dl=${data.fullName}_resume`}
+                      href="/resume"
                       className="flex items-center justify-center gap-x-2 bg-[#1d1d20] border border-transparent hover:border-blue-500 rounded-md duration-200 py-2 text-center cursor-cell font-medium"
                     >
                       <BiFile className="text-base" /> Download Resumé
