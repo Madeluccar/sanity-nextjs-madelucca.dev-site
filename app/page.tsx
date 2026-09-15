@@ -12,55 +12,66 @@ export default async function Home() {
   const profile: ProfileType[] = await getProfile();
 
   return (
-    <main className="max-w-7xl mx-auto lg:px-16 px-6">
-      <section className="xl:flex xl:items-center xl:justify-center gap-x-12 lg:mt-32 mt-20 mb-16 flex-col">
-        {profile &&
-          profile.map((data) => (
-            <div key={data._id} className="flex flex-col lg:flex-row items-start gap-8 lg:items-center">
-              <div className="lg:max-w-2xl max-w-full">
-                <h1 className="text-4xl sm:text-6xl mb-6 font-bold tracking-tight mb-6 lg:leading-[3.7rem] leading-tight lg:min-w-[700px] min-w-full">
-                  {data.headline}
-                </h1>
-                <p className="text-base text-zinc-400 leading-relaxed font-mono text-xl">
-                  {data.shortBio}
-                </p>
-                <ul className="flex items-center gap-x-6 my-5 md:my-20">
-                  {Object.entries(data.socialLinks)
-                    .sort()
-                    .map(([key, value], id) => (
-                      <li key={id}>
-                        <a
-                          href={value}
-                          rel="noreferrer noopener"
-                          className="flex items-center gap-x-3 text-lg hover:text-blue-500 duration-300"
-                        >
-                          {key[0].toUpperCase() + key.toLowerCase().slice(1)}
-                        </a>
-                      </li>
-                    ))}
-                </ul>
+    <main className="px-6 md:px-16">
+      <div className="max-w-6xl mx-auto">
+        <section className="relative isolate lg:mt-32 mt-20 mb-16">
+          {profile &&
+            profile.map((data) => (
+              <div key={data._id} className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] items-start gap-8 lg:items-center">
+                <div className="min-w-0">
+                  <h1 className="text-4xl sm:text-6xl mb-6 font-bold tracking-tight lg:leading-[3.7rem] leading-tight">
+                    {data.headline.split(/(Until they do!)/gi).map((part, index) =>
+                      /^Until they do!$/i.test(part) ? (
+                        <span key={index} className="text-blue-400">{part}</span>
+                      ) : part
+                    )}
+                  </h1>
+                  <p className="text-base text-zinc-400 leading-relaxed font-mono text-xl">
+                    {data.shortBio}
+                  </p>
+                  <ul className="flex items-center gap-x-6 my-5 md:my-20">
+                    {Object.entries(data.socialLinks)
+                      .sort()
+                      .map(([key, value], id) => (
+                        <li key={id}>
+                          <a
+                            href={value}
+                            rel="noreferrer noopener"
+                            className="flex items-center gap-x-3 text-lg hover:text-blue-500 duration-300"
+                          >
+                            {key[0].toUpperCase() + key.toLowerCase().slice(1)}
+                          </a>
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+                <div className="w-full max-w-[360px] mx-auto lg:mx-0">
+                  <Image
+                    className="mx-auto rounded-2xl mb-2 object-cover bg-top bg-[#1d1d20]"
+                    src={data.profileImage.image}
+                    width={360}
+                    height={280}
+                    quality={100}
+                    alt={data.profileImage.alt}
+                  />
+                  <a
+                    href={`${data.resumeURL}?dl=${data.fullName}_resume`}
+                    className="flex items-center justify-center gap-x-2 bg-[#1d1d20] border border-transparent hover:border-blue-500 rounded-md duration-200 py-2 text-center cursor-cell font-medium"
+                  >
+                    <BiFile className="text-base text-blue-400" /> Download Resumé
+                  </a>
+                </div>
               </div>
-              <div className="mx-auto">
-                <Image
-                  className="mx-auto rounded-2xl mb-2 object-cover bg-top bg-[#1d1d20]"
-                  src={data.profileImage.image}
-                  width={360}
-                  height={280}
-                  quality={100}
-                  alt={data.profileImage.alt}
-                />
-                <a
-                  href={`${data.resumeURL}?dl=${data.fullName}_resume`}
-                  className="flex items-center justify-center gap-x-2 bg-[#1d1d20] border border-transparent hover:border-blue-500 rounded-md duration-200 py-2 text-center cursor-cell font-medium"
-                >
-                  <BiFile className="text-base text-blue-400" /> Download Resumé
-                </a>
-              </div>
+            ))}
+          {/* Reserve 80% of the SVG height to account for its 20% upward shift. */}
+          <div aria-hidden="true" className="pointer-events-none relative -z-10 aspect-[1273/724.8]">
+            <div className="absolute inset-x-0 top-0 -translate-y-[20%]">
+              <HeroSvg />
             </div>
-          ))}
-        <HeroSvg /> {/* Render the HeroSvg component */}
-      </section>
-      <Job /> {/* Render the Job component */}
+          </div>
+        </section>
+        <Job /> {/* Render the Job component */}
+      </div>
     </main>
   );
 }
