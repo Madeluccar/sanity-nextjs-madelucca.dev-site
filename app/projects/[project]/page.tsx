@@ -6,7 +6,7 @@ import { getSingleProject } from "@/sanity/sanity.query";
 import type { ProjectType } from "@/types";
 import { PortableText } from "@portabletext/react";
 
-
+export const revalidate = 60;
 
 type Props = {
   params: {
