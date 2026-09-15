@@ -14,13 +14,17 @@ export default async function Home() {
   return (
     <main className="px-6 md:px-16">
       <div className="max-w-6xl mx-auto">
-        <section className="lg:mt-32 mt-20 mb-16">
+        <section className="relative isolate lg:mt-32 mt-20 mb-16">
           {profile &&
             profile.map((data) => (
               <div key={data._id} className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] items-start gap-8 lg:items-center">
                 <div className="min-w-0">
                   <h1 className="text-4xl sm:text-6xl mb-6 font-bold tracking-tight lg:leading-[3.7rem] leading-tight">
-                    {data.headline}
+                    {data.headline.split(/(Until they do!)/gi).map((part, index) =>
+                      /^Until they do!$/i.test(part) ? (
+                        <span key={index} className="text-blue-400">{part}</span>
+                      ) : part
+                    )}
                   </h1>
                   <p className="text-base text-zinc-400 leading-relaxed font-mono text-xl">
                     {data.shortBio}
@@ -59,7 +63,12 @@ export default async function Home() {
                 </div>
               </div>
             ))}
-          <HeroSvg /> {/* Render the HeroSvg component */}
+          {/* Reserve 80% of the SVG height to account for its 20% upward shift. */}
+          <div aria-hidden="true" className="pointer-events-none relative -z-10 aspect-[1273/724.8]">
+            <div className="absolute inset-x-0 top-0 -translate-y-[20%]">
+              <HeroSvg />
+            </div>
+          </div>
         </section>
         <Job /> {/* Render the Job component */}
       </div>
