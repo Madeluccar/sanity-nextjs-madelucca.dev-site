@@ -40,7 +40,7 @@ export default async function About() {
                     />
 
                     <a
-                      href={`${data.resumeURL}?dl=${data.fullName}_resume`}
+                      href="/resume"
                       className="flex items-center justify-center gap-x-2 bg-[#1d1d20] border border-transparent hover:border-blue-500 rounded-md duration-200 py-2 text-center cursor-cell font-medium"
                     >
                       <BiFile className="text-base" /> Download Resumé
