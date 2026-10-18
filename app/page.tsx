@@ -2,7 +2,8 @@ import { getProfile } from "@/sanity/sanity.query"; // Import the function to fe
 import type { ProfileType } from "@/types"; // Import the type for Profile data
 import HeroSvg from "./icons/HeroSvg"; // Import the HeroSvg component
 import Job from "./components/job"; // Import the Job component
-import Image from "next/image"; // Import the Image component from Next.js
+// import Image from "next/image"; // Import the Image component from Next.js
+import ProfileMedia from "./components/ProfileMedia"; // Import the ProfileMedia component (video, GIF, or image)
 import { BiEnvelope, BiFile } from "react-icons/bi"; // Import icons from react-icons library
 
 export const revalidate = 60; // Set the revalidation time for Incremental Static Regeneration (ISR) to 60 seconds
@@ -46,13 +47,19 @@ export default async function Home() {
                   </ul>
                 </div>
                 <div className="w-full max-w-[360px] mx-auto lg:mx-0">
-                  <Image
+                  {/* <Image
                     className="mx-auto rounded-2xl mb-2 object-cover bg-top bg-[#1d1d20]"
                     src={data.profileImage.image}
                     width={360}
                     height={280}
                     quality={100}
                     alt={data.profileImage.alt}
+                  /> */}
+                  <ProfileMedia
+                    profile={data}
+                    className="mx-auto rounded-2xl mb-2 object-cover bg-top bg-[#1d1d20]"
+                    width={360}
+                    height={280}
                   />
                   <a
                     href="/resume"
