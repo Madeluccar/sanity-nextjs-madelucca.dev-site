@@ -8,6 +8,11 @@ export type ProfileType = {
     alt: string;
     image: string;
   };
+  profileMedia?: {
+    alt?: string;
+    url: string;
+    mimeType: string;
+  } | null;
   shortBio: string;
   email: string;
   fullBio: PortableTextBlock[];

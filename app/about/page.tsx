@@ -1,6 +1,7 @@
 // app/about/page.tsx
 
-import Image from "next/image";
+// import Image from "next/image";
+import ProfileMedia from "../components/ProfileMedia";
 import { getProfile } from "@/sanity/sanity.query";
 import type { ProfileType } from "@/types";
 import { PortableText } from "@portabletext/react";
@@ -31,7 +32,7 @@ export default async function About() {
 
                 <div className="w-full max-w-[300px] lg:max-w-none mx-auto lg:mx-0 flex flex-col gap-y-6 lg:order-1 order-none">
                   <div>
-                    <Image
+                    {/* <Image
                       className="w-full h-auto rounded-2xl mb-4 object-cover bg-top bg-[#1d1d20]"
                       src={data.profileImage.image}
                       width={600}
@@ -39,6 +40,13 @@ export default async function About() {
                       sizes="(min-width: 1280px) 393px, (min-width: 1024px) calc((100vw - 160px) * 16 / 45), (min-width: 348px) 300px, calc(100vw - 48px)"
                       quality={100}
                       alt={data.profileImage.alt}
+                    /> */}
+                    <ProfileMedia
+                      profile={data}
+                      className="w-full h-auto rounded-2xl mb-4 object-cover bg-top bg-[#1d1d20]"
+                      width={600}
+                      height={500}
+                      sizes="(min-width: 1280px) 393px, (min-width: 1024px) calc((100vw - 160px) * 16 / 45), (min-width: 348px) 300px, calc(100vw - 48px)"
                     />
 
                     <a

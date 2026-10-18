@@ -37,6 +37,20 @@ const profile = {
       ],
     },
     {
+      name: "profileMedia",
+      title: "Profile Video or GIF",
+      type: "file",
+      description: "Upload a video (MP4, WebM, MOV) or an animated GIF",
+      options: { accept: "video/*,image/gif" },
+      fields: [
+        {
+          name: "alt",
+          title: "Alt",
+          type: "string",
+        },
+      ],
+    },
+    {
       name: "shortBio",
       title: "Short Bio",
       type: "text",

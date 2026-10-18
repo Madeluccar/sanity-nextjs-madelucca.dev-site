@@ -13,6 +13,11 @@ export async function getProfile() {
         alt, 
         "image": asset->url
       },
+      profileMedia {
+        alt,
+        "url": asset->url,
+        "mimeType": asset->mimeType
+      },
       shortBio,
       location,
       fullBio,
