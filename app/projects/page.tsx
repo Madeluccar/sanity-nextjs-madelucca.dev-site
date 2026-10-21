@@ -25,9 +25,7 @@ export default async function Project() {
         </p>
       </section>
 
-      {/* <section className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mb-12"> */}
-      {/* Two columns max: three made each project card too narrow on desktop. */}
-      <section className="grid md:grid-cols-2 grid-cols-1 gap-5 mb-12">
+      <section className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mb-12">
         {projects.map((project) => (
           <Link
             href={`/projects/${project.slug}`}
@@ -41,27 +39,32 @@ export default async function Project() {
               alt={project.name}
               className="bg-zinc-800 rounded-md p-2"
             /> */}
-            {/* Fixed-size tile so every logo gets the same box whatever its aspect ratio; the
-                logo scales to fit inside. Tiles are white (dark logos disappear on a dark tile)
-                unless the project's "Logo Background" is set to Dark in the Studio. */}
+            {/* Same-shape tile for every logo (half the card's width, 4:3), so every logo gets the
+                same box whatever its aspect ratio; the logo scales to fit inside. Tiles are white
+                (dark logos disappear on a dark tile) unless the project's "Logo Background" is
+                set to Dark in the Studio. Was a fixed w-32 h-24 tile. */}
             <div
               className={`${
                 project.logoBackground === "dark" ? "bg-zinc-800" : "bg-white"
-              } w-32 h-24 shrink-0 rounded-md p-3`}
+              } w-1/2 aspect-[4/3] shrink-0 rounded-md p-3`}
             >
               <div className="relative w-full h-full">
                 <Image
                   src={project.logo}
                   fill
-                  sizes="104px"
+                  // sizes="104px"
+                  sizes="(min-width: 1280px) 160px, (min-width: 768px) 25vw, 50vw"
                   alt={project.name}
                   className="object-contain"
                 />
               </div>
             </div>
-            <div>
-              <h2 className="font-bold mb-1 text-zinc-200">{project.name}</h2>
-              <div className="text-sm text-zinc-400">{project.tagline}</div>
+            <div className="min-w-0">
+              {/* <h2 className="font-bold mb-1 text-zinc-200">{project.name}</h2> */}
+              {/* <div className="text-sm text-zinc-400">{project.tagline}</div> */}
+              {/* Name and tagline are 10% larger, rounded up: 16px -> 18px and 14px -> 16px. */}
+              <h2 className="font-bold mb-1 text-lg text-zinc-200">{project.name}</h2>
+              <div className="text-base text-zinc-400">{project.tagline}</div>
             </div>
           </Link>
         ))}
