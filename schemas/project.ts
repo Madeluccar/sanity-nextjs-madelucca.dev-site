@@ -7,7 +7,23 @@ const project = {
   description: "Project Schema",
   type: "document",
   icon: BiPackage,
+  // Lets the Studio list projects in the same order as the Projects page.
+  orderings: [
+    {
+      title: "Display Order",
+      name: "displayOrderAsc",
+      by: [{ field: "displayOrder", direction: "asc" }],
+    },
+  ],
   fields: [
+    defineField({
+      name: "displayOrder",
+      title: "Display Order",
+      type: "number",
+      description:
+        "Position on the Projects page: 1 shows first. Projects without a number show last.",
+      validation: (rule) => rule.integer().min(1),
+    }),
     {
       name: "name",
       title: "Name",

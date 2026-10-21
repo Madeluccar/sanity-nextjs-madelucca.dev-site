@@ -46,8 +46,10 @@ export async function getJob() {
 
 export async function getProjects() {
   return client.fetch(
-    groq`*[_type == "project"]{
-      _id, 
+    // groq`*[_type == "project"]{
+    // Sorted by the Studio's "Display Order"; projects without one go last, newest first.
+    groq`*[_type == "project"] | order(coalesce(displayOrder, 9999) asc, _createdAt desc){
+      _id,
       name,
       "slug": slug.current,
       tagline,
