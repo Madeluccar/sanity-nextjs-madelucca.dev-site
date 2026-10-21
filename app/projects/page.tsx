@@ -25,7 +25,9 @@ export default async function Project() {
         </p>
       </section>
 
-      <section className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mb-12">
+      {/* <section className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mb-12"> */}
+      {/* Two columns max: three made each project card too narrow on desktop. */}
+      <section className="grid md:grid-cols-2 grid-cols-1 gap-5 mb-12">
         {projects.map((project) => (
           <Link
             href={`/projects/${project.slug}`}
