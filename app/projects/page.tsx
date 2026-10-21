@@ -37,7 +37,12 @@ export default async function Project() {
               width={125}
               height={125}
               alt={project.name}
-              className="bg-zinc-800 rounded-md p-2"
+              // className="bg-zinc-800 rounded-md p-2"
+              // Dark logos disappear on a dark tile, so tiles are white unless the project's
+              // "Logo Background" is set to Dark in the Studio (for white logos).
+              className={`${
+                project.logoBackground === "dark" ? "bg-zinc-800" : "bg-white"
+              } rounded-md p-2 object-contain`}
             />
             <div>
               <h2 className="font-bold mb-1 text-zinc-200">{project.name}</h2>

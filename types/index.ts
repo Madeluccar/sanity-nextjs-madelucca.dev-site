@@ -40,6 +40,7 @@ export type ProjectType = {
   tagline: string;
   projectUrl: string;
   logo: string;
+  logoBackground?: "light" | "dark" | null;
   coverImage: {
     alt: string | null;
     image: string;
