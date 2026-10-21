@@ -32,18 +32,31 @@ export default async function Project() {
             key={project._id}
             className="flex items-center gap-x-4 bg-[#1d1d20] border border-transparent hover:border-blue-400 p-4 rounded-lg ease-in-out"
           >
-            <Image
+            {/* <Image
               src={project.logo}
               width={125}
               height={125}
               alt={project.name}
-              // className="bg-zinc-800 rounded-md p-2"
-              // Dark logos disappear on a dark tile, so tiles are white unless the project's
-              // "Logo Background" is set to Dark in the Studio (for white logos).
+              className="bg-zinc-800 rounded-md p-2"
+            /> */}
+            {/* Fixed-size tile so every logo gets the same box whatever its aspect ratio; the
+                logo scales to fit inside. Tiles are white (dark logos disappear on a dark tile)
+                unless the project's "Logo Background" is set to Dark in the Studio. */}
+            <div
               className={`${
                 project.logoBackground === "dark" ? "bg-zinc-800" : "bg-white"
-              } rounded-md p-2 object-contain`}
-            />
+              } w-32 h-24 shrink-0 rounded-md p-3`}
+            >
+              <div className="relative w-full h-full">
+                <Image
+                  src={project.logo}
+                  fill
+                  sizes="104px"
+                  alt={project.name}
+                  className="object-contain"
+                />
+              </div>
+            </div>
             <div>
               <h2 className="font-bold mb-1 text-zinc-200">{project.name}</h2>
               <div className="text-sm text-zinc-400">{project.tagline}</div>
