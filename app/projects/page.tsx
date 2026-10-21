@@ -57,9 +57,12 @@ export default async function Project() {
                 />
               </div>
             </div>
-            <div>
-              <h2 className="font-bold mb-1 text-zinc-200">{project.name}</h2>
-              <div className="text-sm text-zinc-400">{project.tagline}</div>
+            <div className="min-w-0">
+              {/* <h2 className="font-bold mb-1 text-zinc-200">{project.name}</h2> */}
+              {/* <div className="text-sm text-zinc-400">{project.tagline}</div> */}
+              {/* Name and tagline are 10% larger, rounded up: 16px -> 18px and 14px -> 16px. */}
+              <h2 className="font-bold mb-1 text-lg text-zinc-200">{project.name}</h2>
+              <div className="text-base text-zinc-400">{project.tagline}</div>
             </div>
           </Link>
         ))}
