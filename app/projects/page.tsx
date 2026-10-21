@@ -46,9 +46,11 @@ export default async function Project() {
             <div
               className={`${
                 project.logoBackground === "dark" ? "bg-zinc-800" : "bg-white"
-              } w-1/2 aspect-[4/3] shrink-0 rounded-md p-3`}
+              } w-1/2 aspect-[4/3] shrink-0 rounded-md p-3 flex items-center justify-center`}
             >
-              <div className="relative w-full h-full">
+              {/* <div className="relative w-full h-full"> */}
+              {/* Logo box is 90% of the tile's inner area, so each logo is 10% smaller. */}
+              <div className="relative w-[90%] h-[90%]">
                 <Image
                   src={project.logo}
                   fill
