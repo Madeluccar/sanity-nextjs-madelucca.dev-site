@@ -39,21 +39,22 @@ export default async function Project() {
               alt={project.name}
               className="bg-zinc-800 rounded-md p-2"
             /> */}
-            {/* Same-shape tile for every logo (half the card's width, 4:3), so every logo gets the
-                same box whatever its aspect ratio; the logo scales to fit inside. Tiles are white
-                (dark logos disappear on a dark tile) unless the project's "Logo Background" is
-                set to Dark in the Studio. Was a fixed w-32 h-24 tile. */}
+            {/* Same-shape tile for every logo (30% of the card's width, 4:3), so every logo gets
+                the same box whatever its aspect ratio; the logo scales to fit inside. Tiles are
+                white (dark logos disappear on a dark tile) unless the project's "Logo Background"
+                is set to Dark in the Studio. Was a fixed w-32 h-24 tile, then half the card. */}
             <div
               className={`${
                 project.logoBackground === "dark" ? "bg-zinc-800" : "bg-white"
-              } w-1/2 aspect-[4/3] shrink-0 rounded-md p-3`}
+              } w-[30%] aspect-[4/3] shrink-0 rounded-md p-3`}
             >
               <div className="relative w-full h-full">
                 <Image
                   src={project.logo}
                   fill
                   // sizes="104px"
-                  sizes="(min-width: 1280px) 160px, (min-width: 768px) 25vw, 50vw"
+                  // sizes="(min-width: 1280px) 160px, (min-width: 768px) 25vw, 50vw"
+                  sizes="(min-width: 1280px) 100px, (min-width: 768px) 15vw, 30vw"
                   alt={project.name}
                   className="object-contain"
                 />
