@@ -16,12 +16,27 @@ export default async function Project() {
         <h1 className="text-3xl font-bold tracking-tight sm:text-5xl mb-6 lg:leading-[3.7rem] leading-tight">
           Featured projects I&apos;ve built over the years
         </h1>
-        <p className="text-base text-zinc-200 leading-relaxed max-w-2xl">
+        {/* <p className="text-base text-zinc-200 leading-relaxed max-w-2xl">
           I&apos;ve worked on tons of little projects over the years but these
           are the ones that I&apos;m most proud of. Many of them are
           open-source, so if you see something that piques your interest, check
           out the code and contribute if you have ideas for how it can be
           improved.
+        </p> */}
+        <p className="text-base text-zinc-200 leading-relaxed max-w-2xl">
+          Most of these are paid client projects I&apos;ve delivered as an
+          independent contractor: marketing sites, custom WordPress builds, and
+          content-managed sites that clients run on their own. A few of my
+          personal projects are open source on{" "}
+          <a
+            href="https://github.com/Madeluccar"
+            rel="noreferrer noopener"
+            target="_blank"
+            className="text-blue-400 hover:underline"
+          >
+            GitHub
+          </a>
+          , so feel free to browse the code or suggest an improvement.
         </p>
       </section>
 
