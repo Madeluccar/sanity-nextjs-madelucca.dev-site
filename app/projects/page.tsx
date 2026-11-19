@@ -23,11 +23,11 @@ export default async function Project() {
           out the code and contribute if you have ideas for how it can be
           improved.
         </p> */}
-        <p className="text-base text-zinc-200 leading-relaxed max-w-2xl">
+        {/* <p className="text-base text-zinc-200 leading-relaxed max-w-2xl">
           Most of these are paid client projects I&apos;ve delivered as an
           independent contractor: marketing sites, custom WordPress builds, and
           content-managed sites that clients run on their own. A few of my
-          personal projects are open source on{" "}
+          personal projects are open source on
           <a
             href="https://github.com/Madeluccar"
             rel="noreferrer noopener"
@@ -37,6 +37,22 @@ export default async function Project() {
             GitHub
           </a>
           , so feel free to browse the code or suggest an improvement.
+        </p> */}
+        <p className="text-base text-zinc-200 leading-relaxed max-w-2xl">
+          Most of these are client projects I&apos;ve delivered as an
+          independent contractor: marketing sites, custom WordPress builds, and
+          sites whose teams publish their own content. Each project page
+          explains what I built and the tools I used. Some of my personal
+          projects are open source on{" "}
+          <a
+            href="https://github.com/Madeluccar"
+            rel="noreferrer noopener"
+            target="_blank"
+            className="text-blue-400 hover:underline"
+          >
+            GitHub
+          </a>
+          , where you can read the code or suggest an improvement.
         </p>
       </section>
 
