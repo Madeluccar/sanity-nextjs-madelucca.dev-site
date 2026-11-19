@@ -7,6 +7,45 @@ import type { JobType } from "@/types";
 
 export const revalidate = 60;
 
+type Block = { type: "p"; text: string } | { type: "ul"; items: string[] };
+
+// The description is plain text from Sanity: each line is a paragraph,
+// and consecutive lines starting with "- " or "* " form a bullet list.
+function parseDescription(text: string): Block[] {
+  const blocks: Block[] = [];
+  for (const raw of (text ?? "").split(/\r?\n/)) {
+    const line = raw.trim();
+    if (!line) continue;
+    const bullet = line.match(/^[-*\u2022]\s+(.*)$/);
+    const last = blocks[blocks.length - 1];
+    if (bullet) {
+      if (last?.type === "ul") last.items.push(bullet[1]);
+      else blocks.push({ type: "ul", items: [bullet[1]] });
+    } else {
+      blocks.push({ type: "p", text: line });
+    }
+  }
+  return blocks;
+}
+
+function JobDescription({ text }: { text: string }) {
+  return (
+    <div className="text-base text-zinc-400 my-4 flex flex-col gap-y-4">
+      {parseDescription(text).map((block, i) =>
+        block.type === "ul" ? (
+          <ul key={i} className="list-disc pl-5 flex flex-col gap-y-2">
+            {block.items.map((item, j) => (
+              <li key={j}>{item}</li>
+            ))}
+          </ul>
+        ) : (
+          <p key={i}>{block.text}</p>
+        )
+      )}
+    </div>
+  );
+}
+
 export default async function Job() {
   const job: JobType[] = await getJob();
   return (
@@ -39,7 +78,7 @@ export default async function Job() {
               <small className="text-sm text-zinc-500 mt-2 tracking-widest uppercase">
                 {data.startDate.toString()} - {data.endDate ? data.endDate.toString() : 'Current'}
               </small>
-              <p className="text-base text-zinc-400 my-4">{data.description}</p>
+              <JobDescription text={data.description} />
             </div>
           </div>
         ))}
