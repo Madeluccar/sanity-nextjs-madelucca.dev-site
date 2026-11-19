@@ -58,9 +58,9 @@ export default async function Job() {
         {job.map((data) => (
           <div
             key={data._id}
-            className="flex items-start lg:gap-x-6 gap-x-4 max-w-1xl relative before:absolute before:bottom-0 before:top-[4.5rem] before:left-7 before:w-[1px] before:h-[calc(100%-50px)] before:bg-zinc-800"
+            className="flex items-start lg:gap-x-6 gap-x-4 max-w-1xl relative before:absolute before:bottom-0 before:top-[4.5rem] before:left-12 before:w-[1px] before:h-[calc(100%-50px)] before:bg-zinc-800"
           >
-            <a
+            {/* <a
               href={data.url}
               rel="noreferrer noopener"
               className="min-h-[60px] min-w-[60px] rounded-md overflow-clip relative"
@@ -71,6 +71,27 @@ export default async function Job() {
                 alt={`${data.name} logo`}
                 fill
               />
+            </a> */}
+            {/* Fixed-size tile so every logo gets the same box whatever its aspect ratio; the
+                logo scales to fit inside instead of being cropped. Tiles are white (dark logos
+                disappear on a dark tile) unless the job's "Logo Background" is set to Dark in
+                the Studio. Same approach as the Projects page. */}
+            <a
+              href={data.url}
+              rel="noreferrer noopener"
+              className={`${
+                data.logoBackground === "dark" ? "bg-zinc-800" : "bg-white"
+              } w-24 h-16 shrink-0 rounded-md p-2`}
+            >
+              <div className="relative w-full h-full">
+                <Image
+                  src={data.logo}
+                  fill
+                  sizes="80px"
+                  alt={`${data.name} logo`}
+                  className="object-contain"
+                />
+              </div>
             </a>
             <div className="flex flex-col items-start">
               <h3 className="text-xl font-bold">{data.name}</h3>

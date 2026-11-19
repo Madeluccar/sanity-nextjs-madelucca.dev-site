@@ -27,6 +27,7 @@ export type JobType = {
   name: string;
   jobTitle: string;
   logo: string;
+  logoBackground?: "light" | "dark";
   url: string;
   description: string;
   startDate: Date;

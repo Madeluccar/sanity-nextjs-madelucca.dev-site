@@ -26,6 +26,22 @@ const job = {
       type: "image",
     },
     {
+      name: "logoBackground",
+      title: "Logo Background",
+      type: "string",
+      description:
+        "Tile behind the logo in Work Experience. Use Dark only for white or very light logos.",
+      options: {
+        list: [
+          { title: "Light (white)", value: "light" },
+          { title: "Dark", value: "dark" },
+        ],
+        layout: "radio",
+        direction: "horizontal",
+      },
+      initialValue: "light",
+    },
+    {
       name: "url",
       title: "Company Website",
       type: "url",

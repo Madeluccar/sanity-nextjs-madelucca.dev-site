@@ -36,6 +36,7 @@ export async function getJob() {
       name,
       jobTitle,
       "logo": logo.asset->url,
+      logoBackground,
       url,
       description,
       startDate,
