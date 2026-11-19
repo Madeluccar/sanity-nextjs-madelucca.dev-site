@@ -58,7 +58,7 @@ export default async function Job() {
         {job.map((data) => (
           <div
             key={data._id}
-            className="flex items-start lg:gap-x-6 gap-x-4 max-w-1xl relative before:absolute before:bottom-0 before:top-[4.5rem] before:left-12 before:w-[1px] before:h-[calc(100%-50px)] before:bg-zinc-800"
+            className="flex items-start lg:gap-x-6 gap-x-4 max-w-1xl relative before:absolute before:bottom-0 before:top-[5.75rem] before:left-[62px] before:w-[1px] before:h-[calc(100%-70px)] before:bg-zinc-800"
           >
             {/* <a
               href={data.url}
@@ -81,13 +81,13 @@ export default async function Job() {
               rel="noreferrer noopener"
               className={`${
                 data.logoBackground === "dark" ? "bg-zinc-800" : "bg-white"
-              } w-24 h-16 shrink-0 rounded-md p-2`}
+              } w-[125px] h-[83px] shrink-0 rounded-md p-2`}
             >
               <div className="relative w-full h-full">
                 <Image
                   src={data.logo}
                   fill
-                  sizes="80px"
+                  sizes="110px"
                   alt={`${data.name} logo`}
                   className="object-contain"
                 />
